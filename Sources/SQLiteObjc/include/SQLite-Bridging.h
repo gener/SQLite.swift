@@ -22,6 +22,9 @@
 // THE SOFTWARE.
 //
 
+#define SQLITE_HAS_CODEC 1
+#define SQLITE_SWIFT_SQLCIPHER 1
+
 @import Foundation;
 
 #import "sqlite3.h"

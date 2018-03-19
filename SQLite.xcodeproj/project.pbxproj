@@ -228,6 +228,7 @@
 		3D67B3E51DB2469200A4F4C6 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS3.0.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
 		49EB68C31F7B3CB400D89D40 /* Coding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coding.swift; sourceTree = "<group>"; };
 		A121AC451CA35C79005A31D1 /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1A1E17B205F7F45008BAC88 /* SQLCipher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SQLCipher.framework; sourceTree = "<group>"; };
 		EE247AD31C3F04ED00AE3E12 /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE247AD61C3F04ED00AE3E12 /* SQLite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQLite.h; sourceTree = "<group>"; };
 		EE247AD81C3F04ED00AE3E12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -426,6 +427,7 @@
 		EE247AED1C3F06E900AE3E12 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A1A1E17B205F7F45008BAC88 /* SQLCipher.framework */,
 				EE91808D1C46E5230038162A /* SQLite-Bridging.h */,
 				EE247AEE1C3F06E900AE3E12 /* Blob.swift */,
 				EE247AEF1C3F06E900AE3E12 /* Connection.swift */,
@@ -1260,17 +1262,24 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/SQLite/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "$(inherited) -DSQLITE_SWIFT_SQLCIPHER $(inherited)";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stephencelis.SQLite;
 				PRODUCT_NAME = SQLite;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
+				SYSTEM_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Sources/SQLite/sqlcipher";
 			};
 			name = Debug;
 		};
@@ -1288,16 +1297,20 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/SQLite/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "$(inherited) -DSQLITE_SWIFT_SQLCIPHER $(inherited)";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stephencelis.SQLite;
 				PRODUCT_NAME = SQLite;
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
+				SYSTEM_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Sources/SQLite/sqlcipher";
 			};
 			name = Release;
 		};
